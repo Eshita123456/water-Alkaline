@@ -1,6 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =====================
+     ABOUT MODAL
+  ===================== */
+  const aboutModal = document.getElementById("aboutModal");
+  const aboutBtn = document.querySelector(".about-btn");
+  const closeBtn = document.querySelector(".close-btn");
+
+  if (aboutBtn && aboutModal && closeBtn) {
+
+    aboutBtn.addEventListener("click", () => {
+      aboutModal.style.display = "flex";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      aboutModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === aboutModal) {
+        aboutModal.style.display = "none";
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        aboutModal.style.display = "none";
+      }
+    });
+  }
+
+  /* =====================
      HERO IMAGE + VIDEO SLIDER
   ===================== */
   const heroSlides = document.querySelectorAll(".slide");
@@ -8,26 +38,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroPrev = document.querySelector(".nav.prev");
 
   let heroIndex = 0;
+  let heroInterval;
 
   function showHeroSlide(index) {
     heroSlides.forEach(slide => {
       slide.classList.remove("active");
-
-      // pause video if exists
-      if (slide.tagName === "VIDEO") {
-        slide.pause();
-      }
+      if (slide.tagName === "VIDEO") slide.pause();
     });
 
     heroSlides[index].classList.add("active");
 
-    // play video if active slide is video
     if (heroSlides[index].tagName === "VIDEO") {
       heroSlides[index].play();
     }
   }
 
+  function startHeroAutoSlide() {
+    heroInterval = setInterval(() => {
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      showHeroSlide(heroIndex);
+    }, 5000);
+  }
+
+  function stopHeroAutoSlide() {
+    clearInterval(heroInterval);
+  }
+
   if (heroSlides.length && heroNext && heroPrev) {
+
+    showHeroSlide(heroIndex);
+    startHeroAutoSlide();
+
     heroNext.addEventListener("click", () => {
       heroIndex = (heroIndex + 1) % heroSlides.length;
       showHeroSlide(heroIndex);
@@ -38,10 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
       showHeroSlide(heroIndex);
     });
 
-    setInterval(() => {
-      heroIndex = (heroIndex + 1) % heroSlides.length;
-      showHeroSlide(heroIndex);
-    }, 5000);
+    heroSlides.forEach(slide => {
+      slide.addEventListener("mouseenter", stopHeroAutoSlide);
+      slide.addEventListener("mouseleave", startHeroAutoSlide);
+    });
   }
 
   /* =====================
@@ -50,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll(".counter");
 
   if (counters.length) {
+
     const startCounter = (counter) => {
       const target = +counter.dataset.target;
       let count = 0;
@@ -86,12 +128,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const benefitSlider = document.querySelector(".benefit-slider");
 
   if (benefitSlider) {
+
     const track = benefitSlider.querySelector(".slider-track");
     const slides = benefitSlider.querySelectorAll(".benefit-slide");
     const nextBtn = benefitSlider.querySelector(".benefit-next");
     const prevBtn = benefitSlider.querySelector(".benefit-prev");
 
     if (track && slides.length && nextBtn && prevBtn) {
+
       let slideWidth = 0;
       const gap = 30;
 
@@ -99,21 +143,8 @@ document.addEventListener("DOMContentLoaded", () => {
         slideWidth = slides[0].getBoundingClientRect().width + gap;
       };
 
-      const images = benefitSlider.querySelectorAll("img");
-      let loaded = 0;
-
-      images.forEach(img => {
-        if (img.complete) {
-          loaded++;
-        } else {
-          img.addEventListener("load", () => {
-            loaded++;
-            if (loaded === images.length) calculateWidth();
-          });
-        }
-      });
-
-      if (loaded === images.length) calculateWidth();
+      window.addEventListener("load", calculateWidth);
+      window.addEventListener("resize", calculateWidth);
 
       nextBtn.addEventListener("click", () => {
         track.scrollBy({ left: slideWidth, behavior: "smooth" });
@@ -122,8 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
       prevBtn.addEventListener("click", () => {
         track.scrollBy({ left: -slideWidth, behavior: "smooth" });
       });
-
-      window.addEventListener("resize", calculateWidth);
     }
   }
 
@@ -136,31 +165,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const testimonialPrev = document.querySelector(".t-btn.prev");
 
   if (testimonialTrack && testimonialCards.length && testimonialNext && testimonialPrev) {
+
     let index = 0;
     const gap = 30;
-    const cardWidth = testimonialCards[0].offsetWidth + gap;
+
+    const getCardWidth = () => {
+      return testimonialCards[0].offsetWidth + gap;
+    };
+
+    function moveSlide() {
+      testimonialTrack.style.transform =
+        `translateX(-${index * getCardWidth()}px)`;
+    }
 
     testimonialNext.addEventListener("click", () => {
       index = (index + 1) % testimonialCards.length;
-      testimonialTrack.style.transform = `translateX(-${index * cardWidth}px)`;
+      moveSlide();
     });
 
     testimonialPrev.addEventListener("click", () => {
       index = (index - 1 + testimonialCards.length) % testimonialCards.length;
-      testimonialTrack.style.transform = `translateX(-${index * cardWidth}px)`;
+      moveSlide();
     });
 
     setInterval(() => {
       index = (index + 1) % testimonialCards.length;
-      testimonialTrack.style.transform = `translateX(-${index * cardWidth}px)`;
+      moveSlide();
     }, 5000);
+
+    window.addEventListener("resize", moveSlide);
   }
 
   /* =====================
      FAQ ACCORDION
   ===================== */
   document.querySelectorAll(".faq-question").forEach(btn => {
+
     btn.addEventListener("click", () => {
+
       const item = btn.parentElement;
 
       document.querySelectorAll(".faq-item").forEach(faq => {

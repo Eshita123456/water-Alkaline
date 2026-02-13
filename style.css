@@ -246,71 +246,62 @@ a {
    ABOUT MODAL POPUP
 ===================== */
 
+/* MODAL BACKGROUND */
 .about-modal {
+  display: none; /* hidden by default */
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  display: none;
-  align-items: center;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
   justify-content: center;
-  z-index: 10000;
+  align-items: center;
 }
 
 /* MODAL BOX */
 .about-modal-content {
   background: #ffffff;
   width: 90%;
-  max-width: 720px;
+  max-width: 600px;
   padding: 40px;
-  border-radius: 18px;
+  border-radius: 10px;
   position: relative;
-  box-shadow: 0 25px 70px rgba(0,0,0,0.3);
-  animation: fadeUp 0.4s ease;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 /* CLOSE BUTTON */
-.about-modal-content .close-btn {
+.close-btn {
   position: absolute;
-  top: 14px;
-  right: 18px;
-  background: none;
+  top: 15px;
+  right: 15px;
+  background: #000;
+  color: #fff;
   border: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #444;
-}
-
-/* MODAL TEXT */
-.about-modal-content h2 {
-  font-size: 28px;
-  color: #1e3a8a;
-  margin-bottom: 16px;
-}
-
-.about-modal-content h3 {
   font-size: 20px;
-  margin-top: 24px;
-  color: #0f172a;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-.about-modal-content p {
-  font-size: 15px;
-  line-height: 1.75;
-  color: #444;
-  margin-top: 8px;
+.close-btn:hover {
+  background: red;
 }
 
-/* ANIMATION */
-@keyframes fadeUp {
+/* Animation */
+@keyframes fadeIn {
   from {
+    transform: scale(0.9);
     opacity: 0;
-    transform: translateY(30px);
   }
   to {
+    transform: scale(1);
     opacity: 1;
-    transform: translateY(0);
   }
 }
+
 
 /* =====================
    STATS SECTION
@@ -373,7 +364,6 @@ a {
 /* ADD + / % SYMBOLS */
 .stat-card:nth-child(1) h3::after,
 .stat-card:nth-child(2) h3::after {
-  content: "k";
   font-size: 22px;
 }
 
@@ -550,89 +540,6 @@ a {
   font-weight: 600;
   color: #2f5d50;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-.holy-water-section {
-  background: #f7f6f2;
-  padding: 90px 20px;
-}
-
-.holy-water-container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* HEADING */
-.holy-water-heading {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.holy-water-heading h2 {
-  font-size: 38px;
-  color: #3a4f3c;
-  margin-bottom: 12px;
-}
-
-.holy-water-heading p {
-  font-size: 16px;
-  color: #555;
-  max-width: 720px;
-  margin: auto;
-  line-height: 1.6;
-}
-
-/* GRID */
-.holy-water-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  margin-bottom: 50px;
-}
-
-/* CARD */
-.holy-water-card {
-  background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease;
-}
-
-.holy-water-card:hover {
-  transform: translateY(-6px);
-}
-
-.holy-water-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.holy-water-card h3 {
-  font-size: 18px;
-  color: #3a4f3c;
-  margin-top: 12px;
-}
-
-.holy-water-card p {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 14px;
-}
-
-/* TEXT */
-.holy-water-text {
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-
-.holy-water-text p {
-  font-size: 16px;
-  color: #444;
-  line-height: 1.8;
 }
 
 /* =====================
@@ -938,8 +845,8 @@ a {
 ========================= */
 
 .alkaline-simple-section {
-  background: #f6f7f3;
-  padding: 90px 20px;
+  background: linear-gradient(to bottom, #f6f7f3, #eef3f9);
+  padding: 100px 20px;
 }
 
 .alkaline-simple-container {
@@ -947,70 +854,123 @@ a {
   margin: auto;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
+  gap: 70px;
   align-items: center;
 }
 
-/* LEFT TEXT */
+/* =========================
+   LEFT TEXT
+========================= */
+
 .alkaline-simple-text h2 {
-  font-size: 36px;
+  font-size: 38px;
   color: #0b3c5d;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
 .alkaline-simple-text p {
-  font-size: 16px;
+  font-size: 17px;
   color: #555;
-  line-height: 1.7;
-  margin-bottom: 28px;
+  line-height: 1.8;
+  margin-bottom: 35px;
+  max-width: 520px;
 }
 
-/* POINTS */
+/* =========================
+   POINTS
+========================= */
+
 .alkaline-simple-points {
   display: grid;
-  gap: 14px;
-  margin-bottom: 35px;
+  gap: 18px;
+  margin-bottom: 45px;
 }
 
 .alkaline-simple-points .point {
   background: #ffffff;
-  padding: 14px 18px;
-  border-radius: 12px;
+  padding: 16px 22px;
+  border-radius: 14px;
   font-weight: 600;
   color: #1e3a8a;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  cursor: default;
 }
 
-/* BROCHURE */
+.alkaline-simple-points .point:hover {
+  transform: translateX(8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   BROCHURE SECTION
+========================= */
+
+.alkaline-brochure {
+  margin-top: 20px;
+}
+
 .alkaline-brochure h3 {
   font-size: 22px;
   color: #0b3c5d;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .alkaline-brochure p {
   font-size: 14px;
   color: #555;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
+/* Brochure Image */
 .brochure-image {
-  max-width: 240px;
+  max-width: 220px;
   border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-  transition: transform 0.3s ease;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
 }
 
 .brochure-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
-/* RIGHT IMAGE */
+/* Download Button */
+.brochure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #0a66c2, #004aad);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,74,173,0.3);
+  transition: all 0.3s ease;
+}
+
+.brochure-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,74,173,0.45);
+}
+
+/* =========================
+   RIGHT IMAGE
+========================= */
+
 .alkaline-simple-image img {
   width: 100%;
-  max-width: 460px;
+  max-width: 480px;
   display: block;
   margin: auto;
+  transition: transform 0.4s ease;
+}
+
+.alkaline-simple-image img:hover {
+  transform: scale(1.04);
 }
 
 /* =========================
@@ -1018,9 +978,16 @@ a {
 ========================= */
 
 @media (max-width: 900px) {
+
   .alkaline-simple-container {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 50px;
+  }
+
+  .alkaline-simple-text p {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .alkaline-simple-points {
@@ -1029,7 +996,11 @@ a {
   }
 
   .alkaline-simple-image img {
-    margin-top: 40px;
+    margin-top: 20px;
+  }
+
+  .brochure-btn {
+    justify-content: center;
   }
 }
 
