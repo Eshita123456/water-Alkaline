@@ -2386,3 +2386,203 @@ a {
     font-size: 24px;
   }
 }
+/* ================= DISCLAIMER ================= */
+
+.disclaimer-section {
+  padding: 100px 20px;
+  background: #f5f7fa;
+}
+
+.disclaimer-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.disclaimer-title {
+  background: #3f6ea7;
+  color: white;
+  padding: 18px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  border-radius: 50px;
+  margin-bottom: 40px;
+}
+
+.disclaimer-content h3 {
+  margin-bottom: 15px;
+  color: #0b3c5d;
+}
+
+.disclaimer-content ul {
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+.disclaimer-content ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.disclaimer-content p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  color: #444;
+}
+.refund-section {
+  padding: 100px 20px;
+  background: #f5f7fa;
+}
+
+.refund-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.refund-title {
+  background: #3f6ea7;
+  color: #fff;
+  padding: 18px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  border-radius: 50px;
+  margin-bottom: 40px;
+}
+
+.refund-content h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: #0b3c5d;
+}
+
+.refund-content p,
+.refund-content li {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.refund-content ul {
+  padding-left: 20px;
+}
+/* ================= PRIVACY POLICY ================= */
+
+.privacy-section {
+  padding: 100px 20px;
+  background: #f5f7fa;
+}
+
+.privacy-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.privacy-title {
+  background: #3f6ea7;
+  color: #fff;
+  padding: 18px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  border-radius: 50px;
+  margin-bottom: 40px;
+}
+
+.privacy-content h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: #0b3c5d;
+}
+
+.privacy-content p,
+.privacy-content li {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.privacy-content ul {
+  padding-left: 20px;
+}
+/* ================= TERMS & CONDITIONS ================= */
+
+.terms-section {
+  padding: 100px 20px;
+  background: #f5f7fa;
+}
+
+.terms-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.terms-title {
+  background: #3f6ea7;
+  color: #fff;
+  padding: 18px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  border-radius: 50px;
+  margin-bottom: 40px;
+}
+
+.terms-content h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: #0b3c5d;
+}
+
+.terms-content p,
+.terms-content li {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.terms-content ul {
+  padding-left: 20px;
+}
+/* ================= MEDICAL DISCLAIMER ================= */
+
+.medical-section {
+  padding: 100px 20px;
+  background: #f5f7fa;
+}
+
+.medical-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.medical-title {
+  background: #3f6ea7;
+  color: #fff;
+  padding: 18px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  border-radius: 50px;
+  margin-bottom: 40px;
+}
+
+.medical-content h2,
+.medical-content h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: #0b3c5d;
+}
+
+.medical-content p,
+.medical-content li {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.medical-content ul {
+  padding-left: 20px;
+}
