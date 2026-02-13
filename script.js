@@ -1,6 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =====================
+     HAMBURGER MENU
+  ===================== */
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  }
+
+  /* =====================
      ABOUT MODAL
   ===================== */
   const aboutModal = document.getElementById("aboutModal");

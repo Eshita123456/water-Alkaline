@@ -50,6 +50,52 @@ a {
 .navbar nav a:hover {
   color: #2563eb;
 }
+/* =====================
+   HAMBURGER
+===================== */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #0f172a;
+}
+
+/* =====================
+   MOBILE RESPONSIVE
+===================== */
+@media (max-width: 992px) {
+
+  .navbar {
+    padding: 0 25px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar nav {
+    position: absolute;
+    top: 90px;
+    right: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0;
+    display: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  .navbar nav.active {
+    display: flex;
+  }
+
+  .navbar nav a {
+    font-size: 18px;
+  }
+
+}
 
 /* =====================
    HERO / SLIDER
